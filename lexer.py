@@ -6,35 +6,30 @@ class Token:
     def __init__(self,info,ttype):
         self.info = info
         self.ttype = ttype
-    
 class Lexer:
     token = None
     def __init__(self,file):
-        self.input = file + '\n'
-        self.info = ''
+        self.input = file
+        self.info = '\0'
         self.location = -1
         self.next()
-
     def next(self):
         self.location += 1
         if self.location > len(self.input):
             self.info = '\0'
         else:
             self.info = self.input[self.location]
-
     def nextInfo(self):
         if self.location + 1 > len(self.input):
             return'\0'
         else:
             return self.input[self.location + 1]
-
     def build(self):
         while self.info == ' ' or self.info == '\t' or self.info == '\r':
             self.next()
         while self.into == '#':
             while self.info != '\n':
                 self.next()
-        
         if self.info == '\0':
             token = Token(self.info,Tokens.EMP)
             print(self.info)
@@ -80,7 +75,6 @@ class Lexer:
             else:
                 token = Token(self.info, Tokens.DIVID)
                 print(self.info)
-
         elif self.info == '%':
             if self.nextInfo()== '=':
                 inf = self.info
@@ -126,7 +120,6 @@ class Lexer:
             else:
                 token = Token(self.info, Tokens.EQU)
                 print(self.info)
-
         elif self.info == '!':
             if self.nextInfo() == '=':
                 inf = self.info
