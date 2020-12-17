@@ -7,10 +7,8 @@ def interpreter():
         print("Need more information!")
         return
     file = open(sys.argv[1]).read
-
     lexer = Lexer(file)
     token = lexer.build()
-
     while token.ttype != Tokens.EMP:
         token = lexer.build()
 
