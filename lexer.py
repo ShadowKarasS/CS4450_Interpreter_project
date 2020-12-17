@@ -6,6 +6,38 @@ class Token:
     def __init__(self,info,ttype):
         self.info = info
         self.ttype = ttype
+class Tokens(enum.Enum):
+    EMP='\n'      #\0
+    PLUS='+'     #+
+    MINUS='-'    #-
+    TIMES='*'    #*
+    DIVID='/'    #/
+    REMAINDER='%'#%
+    EXP='^'      #^
+    EQU='='      #=
+    PLASEQU='+='  #+=
+    MINUSEQU='-=' #-=
+    TIMESEQU='*=' #*=
+    DIVIDEQU='/=' #/=
+    EXPEQU='^='   #^=
+    REMAINEQU='%='#%=
+    GREAT='<'    #<
+    GREATEQU='<=' #<=
+    LESS='>'     #>
+    LESSQUE='>='  #>=
+    COMEQU='=='   #==
+    NOTEQU='!='   #!=
+    COL=':'      #:
+    LP='('       #(
+    RP=')'       #)
+    COMMA=','    #,
+    IF='if'
+    ELSE='else'
+    ELIF='elif'
+    PRINT='print'
+    FOR='for'
+    INDENT='\t'
+    NUMBER=None
 class Lexer:
     token = None
     def __init__(self,file):
@@ -170,39 +202,3 @@ class Lexer:
                 print(self.info)
         self.next()
         return token
-        
-        
-class Tokens(enum.Enum):
-    EMP='\n'      #\0
-    PLUS='+'     #+
-    MINUS='-'    #-
-    TIMES='*'    #*
-    DIVID='/'    #/
-    REMAINDER='%'#%
-    EXP='^'      #^
-    EQU='='      #=
-    PLASEQU='+='  #+=
-    MINUSEQU='-=' #-=
-    TIMESEQU='*=' #*=
-    DIVIDEQU='/=' #/=
-    EXPEQU='^='   #^=
-    REMAINEQU='%='#%=
-    GREAT='<'    #<
-    GREATEQU='<=' #<=
-    LESS='>'     #>
-    LESSQUE='>='  #>=
-    COMEQU='=='   #==
-    NOTEQU='!='   #!=
-    COL=':'      #:
-    LP='('       #(
-    RP=')'       #)
-    COMMA=','    #,
-    IF='if'
-    ELSE='else'
-    ELIF='elif'
-    PRINT='print'
-    FOR='for'
-    INDENT='    '
-    NUMBER=None
-    
-
